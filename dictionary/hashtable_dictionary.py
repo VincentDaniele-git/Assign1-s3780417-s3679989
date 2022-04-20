@@ -1,4 +1,6 @@
 from typing import List
+from dictionary.
+from dictionary import Dictionary
 from dictionary.base_dictionary import BaseDictionary
 from dictionary.word_frequency import WordFrequency
 
@@ -50,10 +52,8 @@ class HashTableDictionary(BaseDictionary):
             if dictWord == word_frequency.word:
                 return False
             else:
-                continue
-        
-        self.dict[word_frequency.word] = word_frequency.frequency
-        return True
+                self.dict[word_frequency.word] = word_frequency.frequency
+                return True
 
     def delete_word(self, word: str) -> bool:
         """
