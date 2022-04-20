@@ -55,7 +55,7 @@ if __name__ == '__main__':
         ##At this point dictionary of 50k has been built...
         
         
-        word_count = len(agent.list)
+        word_count = 50000
         
         # select_element = random(0,len(agent.list)-1)
         
