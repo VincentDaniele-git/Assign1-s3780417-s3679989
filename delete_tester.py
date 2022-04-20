@@ -13,7 +13,7 @@ def usage():
     """
     Print help/usage message.
     """
-    print('python3 dictionary_file_based.py', '<approach> [data fileName] [command fileName] [output fileName]')
+    print('python3 dictionary_file_based.py', '<approach> [output fileName]')
     print('<approach> = <list | hashtable | tst>')
     sys.exit(1)
 
@@ -22,7 +22,7 @@ if __name__ == '__main__':
     # Fetch the command line arguments
     args = sys.argv
 
-    if len(args) != 3:
+    if len(args) != 4:
         print('Incorrect number of arguments.')
         usage()
 
@@ -41,6 +41,8 @@ if __name__ == '__main__':
     # read from data file to populate the initial set of points
     data_filename = args[2]
     words_frequencies_from_file = []
+    output_filename = args[3]
+    
     try:
         data_file = open(data_filename, 'r')
         for line in data_file:
@@ -52,36 +54,102 @@ if __name__ == '__main__':
         data_file.close()
         agent.build_dictionary(words_frequencies_from_file)
         
-        ##At this point dictionary of 50k has been buiilt.
+        # Result of TST
+    
+        output_file = open(output_filename, 'w')
         
-        word_count = len(agent.list)
+        output_file.write(f"Length of Hash\tNanoseconds\n")  
+        
         start_timer = time.time_ns()
         
+        print(len(agent.tst))
         
-        
-        for line in list(agent.list): # (word, frequency)
-            agent.delete_word(line.word)
+        # for word in list(agent.dict):
+        #     agent.delete_word(word)
             
-            
-            if (len(agent.list) == 0 or
-                len(agent.list) == 250 or 
-                len(agent.list) == 500 or
-                len(agent.list) == 1000 or 
-                len(agent.list) == 2500 or
-                len(agent.list) == 2750 or
-                len(agent.list) == 10000 or 
-                len(agent.list) == 25000 or 
-                len(agent.list) == 35000 or
-                len(agent.list) == 40000 or
-                len(agent.list) == 49500 or
-                len(agent.list) == 50000):
-                
-                end_timer = time.time_ns()
-                
-                print("Time Elasped for Deleting word count", len(agent.list), "is: ", end_timer - start_timer)
-                
+            # if (len(agent.dict) == 50000 or
+            #     len(agent.dict) == 45000 or
+            #     len(agent.dict) == 40000 or
+            #     len(agent.dict) == 35000 or
+            #     len(agent.dict) == 30000 or
+            #     len(agent.dict) == 25000 or
+            #     len(agent.dict) == 20000 or
+            #     len(agent.dict) == 15000 or
+            #     len(agent.dict) == 10000 or
+            #     len(agent.dict) == 5000 or
+            #     len(agent.dict) == 0):
         
-        print(len(agent.list))
+            #     end_timer = time.time_ns()
+            #     # print("Number of words remaining:", len(agent.list))
+            #     print("Time Elasped for Deleting word count", len(agent.dict), "is:\t", end_timer - start_timer)
+                
+            #     output_file.write(f"{len(agent.dict)}\t{end_timer - start_timer}\n")
+        
+        
+        
+        # # Result of HashTable
+    
+        # output_file = open(output_filename, 'w')
+        
+        # output_file.write(f"Length of Hash\tNanoseconds\n")  
+        
+        # start_timer = time.time_ns()
+        
+        # print(len(agent.dict))
+        
+        # for word in list(agent.dict):
+        #     agent.delete_word(word)
+            
+        #     if (len(agent.dict) == 50000 or
+        #         len(agent.dict) == 45000 or
+        #         len(agent.dict) == 40000 or
+        #         len(agent.dict) == 35000 or
+        #         len(agent.dict) == 30000 or
+        #         len(agent.dict) == 25000 or
+        #         len(agent.dict) == 20000 or
+        #         len(agent.dict) == 15000 or
+        #         len(agent.dict) == 10000 or
+        #         len(agent.dict) == 5000 or
+        #         len(agent.dict) == 0):
+        
+        #         end_timer = time.time_ns()
+        #         # print("Number of words remaining:", len(agent.list))
+        #         print("Time Elasped for Deleting word count", len(agent.dict), "is:\t", end_timer - start_timer)
+                
+        #         output_file.write(f"{len(agent.dict)}\t{end_timer - start_timer}\n")
+        
+
+        # # Obtaining result of List
+        
+        # word_count = len(agent.list)
+        # start_timer = time.time_ns()
+    
+        # output_file = open(output_filename, 'w')
+        
+        # output_file.write(f"Length of List\tNanoseconds\n")
+        
+        # for line in list(agent.list):
+        #     agent.delete_word(line.word)
+        
+        #     if (len(agent.list) == 50000 or
+        #         len(agent.list) == 45000 or
+        #         len(agent.list) == 40000 or
+        #         len(agent.list) == 35000 or
+        #         len(agent.list) == 30000 or
+        #         len(agent.list) == 25000 or
+        #         len(agent.list) == 20000 or
+        #         len(agent.list) == 15000 or
+        #         len(agent.list) == 10000 or
+        #         len(agent.list) == 5000 or
+        #         len(agent.list) == 0):
+                
+        #         end_timer = time.time_ns()
+        #         # print("Number of words remaining:", len(agent.list))
+        #         print("Time Elasped for Deleting word count", len(agent.list), "is:\t", end_timer - start_timer)
+                
+        #         output_file.write(f"{len(agent.list)}\t{end_timer - start_timer}\n")
+                
+
                 
         
         

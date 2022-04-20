@@ -22,8 +22,10 @@ class TernarySearchTreeDictionary(BaseDictionary):
         @param words_frequencies: list of (word, frequency) to be stored
         """
         # TO BE IMPLEMENTED
+        
+        
         firstWord = words_frequencies[0].word
-        self.rootNode = Node(firstWord[0])
+        self.rootNode = Node(firstWord[0]) #adding starting letter of first word.
         for word in words_frequencies:
             self.add_word_frequency(word)
 

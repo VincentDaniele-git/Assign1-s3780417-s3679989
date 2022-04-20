@@ -20,7 +20,7 @@ if __name__ == '__main__':
     # Fetch the command line arguments
     args = sys.argv
 
-    if len(args) != 3:
+    if len(args) != 4:
         print('Incorrect number of arguments.')
         usage()
 
@@ -39,75 +39,70 @@ if __name__ == '__main__':
     # read from data file to populate the initial set of points
     data_filename = args[2]
     words_frequencies_from_file = []
+    output_filename = args[3]
+    
     try:
         data_file = open(data_filename, 'r')
         
         start_timer = time.time_ns() # Begin Timer
         word_count = 0
-        agent.list = []
+        # agent.list = []
+        agent.dict = {}
+
+        
+        output_file = open(output_filename, 'w')
+        output_file.write(f"Length of Hash\tNanoseconds\n")  
+        
+        words_frequencies_from_file = []
         
         for line in data_file:
             values = line.split()
             word = values[0]
             frequency = int(values[1])
             word_frequency = WordFrequency(word, frequency)  # each line contains a word and its frequency
-        
+            
+            words_frequencies_from_file.append(word_frequency)
+            
+            firstWord = words_frequencies_from_file[0].word
+            agent.rootNode = Node(firstWord[0]) 
             
             agent.add_word_frequency(word_frequency)
-            
-            # words_frequencies_from_file.append(word_frequency)
-            
+
             word_count += 1
             
-            if (word_count == 250 or 
-                word_count == 500 or
-                word_count == 1000 or 
-                word_count == 2500 or
-                word_count == 2750 or 
-                word_count == 10000 or 
-                word_count == 25000 or 
-                word_count == 49500 or
+            # print(word_frequency.word)
+            
+            if (word_count == 0 or
+                word_count == 5000 or 
+                word_count == 10000 or
+                word_count == 15000 or
+                word_count == 20000 or 
+                word_count == 25000 or
+                word_count == 30000 or 
+                word_count == 35000 or 
+                word_count == 40000 or 
+                word_count == 45000 or
                 word_count == 50000):
 
                 end_timer = time.time_ns()
                 print("Time Elasped for word count", word_count, "is: ", end_timer - start_timer)
-                
+                output_file.write(f"{word_count}\t{end_timer - start_timer}\n")
                 
         data_file.close()
         
-        word_delete_counter = 50000
-        
-        start_timer = time.time_ns()
-        
-        for line in agent.list: # (word, frequency)
-            
-            agent.delete_word(line.word)
-            word_delete_counter -= 1
-            
-            if (word_count == 0 or
-                word_count == 250 or 
-                word_count == 500 or
-                word_count == 1000 or 
-                word_count == 2500 or
-                word_count == 2750 or 
-                word_count == 10000 or 
-                word_count == 25000 or 
-                word_count == 49500 or
-                word_count == 50000):
-                
-                end_timer = time.time_ns()
-                print("Time Elasped for Deleting word count", word_count, "is: ", end_timer - start_timer)
-        
-        
-        # agent.build_dictionary(words_frequencies_from_file)
-        
-        #timing from this point onwards
-        # print(agent.search("tbc"))
-        
-        
+
     except FileNotFoundError as e:
         print("Data file doesn't exist.")
         usage()
+
+
+
+
+
+
+
+
+
 
     # command_filename = args[3]
     # output_filename = args[4]
