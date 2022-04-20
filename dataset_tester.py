@@ -79,7 +79,7 @@ if __name__ == '__main__':
         
         start_timer = time.time_ns()
         
-        for line in agent: # (word, frequency)
+        for line in agent.list: # (word, frequency)
             
             agent.delete_word(line[0])
             word_delete_counter -= 1
