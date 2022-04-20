@@ -38,6 +38,7 @@ class ListDictionary(BaseDictionary):
         for dictWord in self.list:
             if dictWord.word == word:
                 return dictWord.frequency
+            
         return 0
 
     def add_word_frequency(self, word_frequency: WordFrequency) -> bool:

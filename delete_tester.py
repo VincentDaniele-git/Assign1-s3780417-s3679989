@@ -54,37 +54,34 @@ if __name__ == '__main__':
         
         ##At this point dictionary of 50k has been buiilt.
         
-        word_count = 50000
-        
-        # select_element = random(0,len(agent.list)-1)
-        
+        word_count = len(agent.list)
         start_timer = time.time_ns()
         
         
         
-        for line in agent.list: # (word, frequency)
-   
-            agent.delete_word(line)
+        for line in list(agent.list): # (word, frequency)
+            agent.delete_word(line.word)
             
             
-            if (word_count == 0 or
-                word_count == 250 or 
-                word_count == 500 or
-                word_count == 1000 or 
-                word_count == 2500 or
-                word_count == 2750 or
-                word_count == 10000 or 
-                word_count == 25000 or 
-                word_count == 35000 or
-                word_count == 40000 or
-                word_count == 49500 or
-                word_count == 50000):
+            if (len(agent.list) == 0 or
+                len(agent.list) == 250 or 
+                len(agent.list) == 500 or
+                len(agent.list) == 1000 or 
+                len(agent.list) == 2500 or
+                len(agent.list) == 2750 or
+                len(agent.list) == 10000 or 
+                len(agent.list) == 25000 or 
+                len(agent.list) == 35000 or
+                len(agent.list) == 40000 or
+                len(agent.list) == 49500 or
+                len(agent.list) == 50000):
                 
                 end_timer = time.time_ns()
                 
-                print("Time Elasped for Deleting word count", word_count, "is: ", end_timer - start_timer)
+                print("Time Elasped for Deleting word count", len(agent.list), "is: ", end_timer - start_timer)
                 
-            word_count -= 1
+        
+        print(len(agent.list))
                 
         
         
