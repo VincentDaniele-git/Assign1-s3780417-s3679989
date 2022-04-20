@@ -52,8 +52,7 @@ if __name__ == '__main__':
         data_file.close()
         agent.build_dictionary(words_frequencies_from_file)
         
-        ##At this point dictionary of 50k has been built...
-        
+        ##At this point dictionary of 50k has been buiilt.
         
         word_count = 50000
         
@@ -65,7 +64,7 @@ if __name__ == '__main__':
         
         for line in agent.list: # (word, frequency)
    
-            agent.delete_word(line.word)
+            agent.delete_word(line)
             
             
             if (word_count == 0 or
@@ -73,7 +72,7 @@ if __name__ == '__main__':
                 word_count == 500 or
                 word_count == 1000 or 
                 word_count == 2500 or
-                word_count == 2750 or 
+                word_count == 2750 or
                 word_count == 10000 or 
                 word_count == 25000 or 
                 word_count == 35000 or
@@ -86,6 +85,7 @@ if __name__ == '__main__':
                 print("Time Elasped for Deleting word count", word_count, "is: ", end_timer - start_timer)
                 
             word_count -= 1
+                
         
         
     except FileNotFoundError as e:
