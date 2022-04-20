@@ -62,7 +62,37 @@ if __name__ == '__main__':
         
         start_timer = time.time_ns()
         
-        print(len(agent.tst))
+        copy_words_frequencies = words_frequencies_from_file
+       
+        print(len(copy_words_frequencies))
+        
+        counter = len(copy_words_frequencies)
+        for line in copy_words_frequencies:
+            # print(line.word)
+            agent.delete_nodes(agent.rootNode,line.word)
+            counter -= 1
+            
+            if (counter == 50000 or
+                counter == 45000 or
+                counter == 40000 or
+                counter == 35000 or
+                counter == 30000 or
+                counter == 25000 or
+                counter == 20000 or
+                counter == 15000 or
+                counter == 10000 or
+                counter == 5000 or
+                counter == 0):
+
+                end_timer = time.time_ns()
+                print("Time Elasped for Deleting word count", counter, "is:\t", end_timer - start_timer)
+                
+                output_file.write(f"{counter}\t{end_timer - start_timer}\n")    
+            
+        # firstWord = words_frequencies_from_file[0].word
+        # agent.rootNode = Node(firstWord[0])
+        # agent.delete_word(word_frequency)
+        # agent.delete_word(word)
         
         # for word in list(agent.dict):
         #     agent.delete_word(word)
