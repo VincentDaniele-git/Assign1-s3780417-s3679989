@@ -1,6 +1,4 @@
 from typing import List
-from dictionary.
-from dictionary import Dictionary
 from dictionary.base_dictionary import BaseDictionary
 from dictionary.word_frequency import WordFrequency
 
