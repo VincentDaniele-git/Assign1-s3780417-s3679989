@@ -6,6 +6,7 @@ from dictionary.list_dictionary import ListDictionary
 from dictionary.hashtable_dictionary import HashTableDictionary
 from dictionary.ternarysearchtree_dictionary import TernarySearchTreeDictionary
 import time
+import copy
 
 import random
 
@@ -56,18 +57,32 @@ if __name__ == '__main__':
         
         # # Result of TST
     
-        # output_file = open(output_filename, 'w')
+        output_file = open(output_filename, 'w')
         
-        # output_file.write(f"Length of Hash\tNanoseconds\n")  
+        output_file.write(f"Length of Hash\tNanoseconds\n")  
         
-        # start_timer = time.time_ns()
+
         
-        # copy_words_frequencies = words_frequencies_from_file
+        deepcopy_words_freqeuncies = copy.deepcopy(words_frequencies_from_file)
+    
+        
+        random.shuffle(deepcopy_words_freqeuncies)
+        
+        start_timer = time.time_ns()
+        
+        for word_freq in deepcopy_words_freqeuncies:
+            print(word_freq.word)
+    
+        # print(len(random_list))
+        
+        # for word_freq in random_list:
+        #     print(word_freq)
        
         # print(len(copy_words_frequencies))
         
-        # counter = len(copy_words_frequencies)
-        # for line in copy_words_frequencies:
+        # counter = len(random_list)
+        
+        # for line in random_list:
         #     # print(line.word)
         #     agent.delete_nodes(agent.rootNode,line.word)
         #     counter -= 1
@@ -130,64 +145,51 @@ if __name__ == '__main__':
 
         # Obtaining result of List
         
-        word_count = len(agent.list)
-        start_timer = time.time_ns()
+        # word_count = len(agent.list)
+        # start_timer = time.time_ns()
     
-        output_file = open(output_filename, 'w')
+        # output_file = open(output_filename, 'w')
         
-        output_file.write(f"Length of List\tNanoseconds\n")
+        # output_file.write(f"Length of List\tNanoseconds\n")
         
-        random_list = agent.list
-        random.shuffle(random_list)
+        # counter = 0
+        # random_list = agent.list
+        # random.shuffle(random_list)
         
-        counter = 50000
-        for word_frequency in list(random_list):
-            # print(word_frequency.word)
-            agent.delete_word(word_frequency.word)
-            counter -= 1
+        # #Testing only
+               # # for word_frequency in random_list:
+               # #     print(word_frequency.word)
+                # #     counter += 1
+                
+               # # print(counter)
+               # # print(len(random_list))
+        ##Testing End
+        
+        # counter = 50000
+        # for word_frequency in list(random_list):
+        #     # print(word_frequency.word)
+        #     agent.delete_word(word_frequency.word)
+        #     counter -= 1
             
-            if (len(random_list) == 50000 or
-                len(random_list) == 45000 or
-                len(random_list) == 40000 or
-                len(random_list) == 35000 or
-                len(random_list) == 30000 or
-                len(random_list) == 25000 or
-                len(random_list) == 20000 or
-                len(random_list) == 15000 or
-                len(random_list) == 10000 or
-                len(random_list) == 5000 or
-                len(random_list) == 0):
-                
-                end_timer = time.time_ns()
-                # print("Number of words remaining:", len(agent.list))
-                print("Time Elasped for Deleting word count", len(random_list), "is:\t", end_timer - start_timer)
-                
-                output_file.write(f"{len(random_list)}\t{end_timer - start_timer}\n")
-        
-        print(counter)
-
-        
-        # for line in list(agent.list):
-        #     agent.delete_word(line.word)
-        
-        #     if (len(agent.list) == 50000 or
-        #         len(agent.list) == 45000 or
-        #         len(agent.list) == 40000 or
-        #         len(agent.list) == 35000 or
-        #         len(agent.list) == 30000 or
-        #         len(agent.list) == 25000 or
-        #         len(agent.list) == 20000 or
-        #         len(agent.list) == 15000 or
-        #         len(agent.list) == 10000 or
-        #         len(agent.list) == 5000 or
-        #         len(agent.list) == 0):
+        #     if (len(random_list) == 50000 or
+        #         len(random_list) == 45000 or
+        #         len(random_list) == 40000 or
+        #         len(random_list) == 35000 or
+        #         len(random_list) == 30000 or
+        #         len(random_list) == 25000 or
+        #         len(random_list) == 20000 or
+        #         len(random_list) == 15000 or
+        #         len(random_list) == 10000 or
+        #         len(random_list) == 5000 or
+        #         len(random_list) == 0):
                 
         #         end_timer = time.time_ns()
         #         # print("Number of words remaining:", len(agent.list))
-        #         print("Time Elasped for Deleting word count", len(agent.list), "is:\t", end_timer - start_timer)
+        #         print("Time Elasped for Deleting word count", len(random_list), "is:\t", end_timer - start_timer)
                 
-        #         output_file.write(f"{len(agent.list)}\t{end_timer - start_timer}\n")
-                
+        #         output_file.write(f"{len(random_list)}\t{end_timer - start_timer}\n")
+        
+        # print(counter)
 
                 
         

@@ -44,10 +44,9 @@ if __name__ == '__main__':
     try:
         data_file = open(data_filename, 'r')
         
-        start_timer = time.time_ns() # Begin Timer
         word_count = 0
-        # agent.list = []
-        agent.dict = {}
+        agent.list = []
+        # agent.dict = {}
 
         
         output_file = open(output_filename, 'w')
@@ -55,16 +54,53 @@ if __name__ == '__main__':
         
         words_frequencies_from_file = []
         
+        start_timer = time.time_ns() 
+        
+        # TST ADDING
+        
+        # for line in data_file:
+            
+        #     values = line.split()
+        #     word = values[0]
+        #     frequency = int(values[1])
+        #     word_frequency = WordFrequency(word, frequency)  # each line contains a word and its frequency
+            
+        #     words_frequencies_from_file.append(word_frequency)
+            
+        #     firstWord = words_frequencies_from_file[0].word
+        #     agent.rootNode = Node(firstWord[0]) 
+            
+        #     agent.add_word_frequency(word_frequency)
+
+        #     word_count += 1
+            
+        #     # print(word_frequency.word)
+            
+        #     if (word_count == 0 or
+        #         word_count == 5000 or 
+        #         word_count == 10000 or
+        #         word_count == 15000 or
+        #         word_count == 20000 or 
+        #         word_count == 25000 or
+        #         word_count == 30000 or 
+        #         word_count == 35000 or 
+        #         word_count == 40000 or 
+        #         word_count == 45000 or
+        #         word_count == 50000):
+
+        #         end_timer = time.time_ns()
+        #         print("Time Elasped for word count", word_count, "is: ", end_timer - start_timer)
+        #         output_file.write(f"{word_count}\t{end_timer - start_timer}\n")
+                
+                
+        # LIST ADDING
+        
         for line in data_file:
+            
             values = line.split()
             word = values[0]
             frequency = int(values[1])
             word_frequency = WordFrequency(word, frequency)  # each line contains a word and its frequency
-            
-            words_frequencies_from_file.append(word_frequency)
-            
-            firstWord = words_frequencies_from_file[0].word
-            agent.rootNode = Node(firstWord[0]) 
             
             agent.add_word_frequency(word_frequency)
 
@@ -87,6 +123,19 @@ if __name__ == '__main__':
                 end_timer = time.time_ns()
                 print("Time Elasped for word count", word_count, "is: ", end_timer - start_timer)
                 output_file.write(f"{word_count}\t{end_timer - start_timer}\n")
+                start_timer = time.time_ns()
+                # Current
+                # duration to add 5000 words in a 5000 dictionary size
+                # duration to add 5000 words in a 10000 dictionary size
+                # duration to add 5000 words in a 15000 dictionary size
+                # duration to add 5000 words in a 20000 dictionary size
+                # duration to add 5000 words in a 25000 dictionary size
+                
+                # Before
+                # duration to add 5000 words in a 5000 dictionary size
+                # duration to add 10000 words in a 10000 dictionary size ## difference between 5000 and 10000
+                # duration to add 15000 words in a 15000 dictionary size
+                # duration to add 25000 words in a 25000 dictionary size
                 
         data_file.close()
         
