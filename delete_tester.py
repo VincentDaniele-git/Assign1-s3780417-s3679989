@@ -137,10 +137,34 @@ if __name__ == '__main__':
         
         output_file.write(f"Length of List\tNanoseconds\n")
         
-        print(list(agent.list))
-        # random_list = list(agent.list)
-        # random.shuffle(random_list)
-        # print(random_list)
+        random_list = agent.list
+        random.shuffle(random_list)
+        
+        counter = 50000
+        for word_frequency in list(random_list):
+            # print(word_frequency.word)
+            agent.delete_word(word_frequency.word)
+            counter -= 1
+            
+            if (len(random_list) == 50000 or
+                len(random_list) == 45000 or
+                len(random_list) == 40000 or
+                len(random_list) == 35000 or
+                len(random_list) == 30000 or
+                len(random_list) == 25000 or
+                len(random_list) == 20000 or
+                len(random_list) == 15000 or
+                len(random_list) == 10000 or
+                len(random_list) == 5000 or
+                len(random_list) == 0):
+                
+                end_timer = time.time_ns()
+                # print("Number of words remaining:", len(agent.list))
+                print("Time Elasped for Deleting word count", len(random_list), "is:\t", end_timer - start_timer)
+                
+                output_file.write(f"{len(random_list)}\t{end_timer - start_timer}\n")
+        
+        print(counter)
 
         
         # for line in list(agent.list):
