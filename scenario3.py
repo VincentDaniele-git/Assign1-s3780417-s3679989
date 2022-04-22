@@ -60,6 +60,9 @@ if __name__ == '__main__':
         
 # TST
 
+        output_file = open(output_filename, 'w')
+        output_file.write(f"\tNanoseconds\n")  
+        
         selected_word_list = []
 
         copy_words_frequencies = words_frequencies_from_file
@@ -82,14 +85,18 @@ if __name__ == '__main__':
         
         start_timer = time.time_ns()
         
-        for word in selected_word_list: #cute
+        for word in selected_word_list: 
+            
             # agent.search(word)
-            max_num = random.randint(1, 3) 
+            
+            #autocomplete - find prefix
+            max_num = random.randint(1, 4) 
             agent.autocomplete(word[0:max_num]) 
             
         end_timer = time.time_ns()
         
         print(end_timer - start_timer)
+        output_file.write(f"{end_timer - start_timer}")
           
 
 

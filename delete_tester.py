@@ -61,17 +61,17 @@ if __name__ == '__main__':
         
         output_file.write(f"Length of Hash\tNanoseconds\n")  
         
-
         
-        deepcopy_words_freqeuncies = copy.deepcopy(words_frequencies_from_file)
-    
+        deepcopy_words_frequencies = copy.deepcopy(words_frequencies_from_file)
         
-        random.shuffle(deepcopy_words_freqeuncies)
+        random.shuffle(deepcopy_words_frequencies)
         
         start_timer = time.time_ns()
         
-        for word_freq in deepcopy_words_freqeuncies:
-            print(word_freq.word)
+        # for word_freq in deepcopy_words_frequencies:
+            # print(word_freq.word)
+            
+        ##### NEED TO COMPLETE? ######
     
         # print(len(random_list))
         
@@ -80,30 +80,31 @@ if __name__ == '__main__':
        
         # print(len(copy_words_frequencies))
         
-        # counter = len(random_list)
+        counter = len(deepcopy_words_frequencies)
         
-        # for line in random_list:
-        #     # print(line.word)
-        #     agent.delete_nodes(agent.rootNode,line.word)
-        #     counter -= 1
-            
-        #     if (counter == 50000 or
-        #         counter == 45000 or
-        #         counter == 40000 or
-        #         counter == 35000 or
-        #         counter == 30000 or
-        #         counter == 25000 or
-        #         counter == 20000 or
-        #         counter == 15000 or
-        #         counter == 10000 or
-        #         counter == 5000 or
-        #         counter == 0):
+        for word_freq in list(deepcopy_words_frequencies):
 
-        #         end_timer = time.time_ns()
-        #         print("Time Elasped for Deleting word count", counter, "is:\t", end_timer - start_timer)
-                
-        #         output_file.write(f"{counter}\t{end_timer - start_timer}\n")    
+            agent.delete_nodes(agent.rootNode,word_freq.word)
+            counter -= 1
             
+            if (counter == 50000 or
+                counter == 45000 or
+                counter == 40000 or
+                counter == 35000 or
+                counter == 30000 or
+                counter == 25000 or
+                counter == 20000 or
+                counter == 15000 or
+                counter == 10000 or
+                counter == 5000 or
+                counter == 0):
+
+                end_timer = time.time_ns()
+                print("Time Elasped for Deleting word count", counter, "is:\t", end_timer - start_timer)
+                
+                output_file.write(f"{counter}\t{end_timer - start_timer}\n")    
+                start_timer = time.time_ns()
+                
 
         
         # # Result of HashTable
@@ -141,12 +142,14 @@ if __name__ == '__main__':
         #         print("Time Elasped for Deleting word count", len(agent.dict), "is:\t", end_timer - start_timer)
                 
         #         output_file.write(f"{len(agent.dict)}\t{end_timer - start_timer}\n")
+        #         start_timer = time.time_ns()
         
 
         # Obtaining result of List
         
+        
         # word_count = len(agent.list)
-        # start_timer = time.time_ns()
+        # # start_timer = time.time_ns()
     
         # output_file = open(output_filename, 'w')
         
@@ -156,14 +159,16 @@ if __name__ == '__main__':
         # random_list = agent.list
         # random.shuffle(random_list)
         
+        # start_timer = time.time_ns()
+        
         # #Testing only
-               # # for word_frequency in random_list:
-               # #     print(word_frequency.word)
-                # #     counter += 1
+        #        # for word_frequency in random_list:
+        #        #     print(word_frequency.word)
+        #         #     counter += 1
                 
-               # # print(counter)
-               # # print(len(random_list))
-        ##Testing End
+        #        # print(counter)
+        #        # print(len(random_list))
+        # #Testing End
         
         # counter = 50000
         # for word_frequency in list(random_list):
@@ -188,6 +193,7 @@ if __name__ == '__main__':
         #         print("Time Elasped for Deleting word count", len(random_list), "is:\t", end_timer - start_timer)
                 
         #         output_file.write(f"{len(random_list)}\t{end_timer - start_timer}\n")
+        #         start_timer = time.time_ns()
         
         # print(counter)
 
