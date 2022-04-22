@@ -24,3 +24,5 @@ with open("sampleData200k_20k.txt",'w') as file:
 with open("sampleData200k_10k.txt",'w') as file:
     for line in lines[:int(len(lines)/20)]:
         file.write(line)
+
+        
