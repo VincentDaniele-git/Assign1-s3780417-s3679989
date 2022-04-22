@@ -91,9 +91,10 @@ if __name__ == '__main__':
                 end_timer = time.time_ns()
                 print("Time Elasped for word count", word_count, "is: ", end_timer - start_timer)
                 output_file.write(f"{word_count}\t{end_timer - start_timer}\n")
+                start_timer = time.time_ns()
                 
                 
-        # LIST ADDING
+        # LIST ADDING & HASH
         
         # for line in data_file:
             
@@ -124,6 +125,7 @@ if __name__ == '__main__':
         #         print("Time Elasped for word count", word_count, "is: ", end_timer - start_timer)
         #         output_file.write(f"{word_count}\t{end_timer - start_timer}\n")
         #         start_timer = time.time_ns()
+                
                 # Current
                 # duration to add 5000 words in a 5000 dictionary size
                 # duration to add 5000 words in a 10000 dictionary size
