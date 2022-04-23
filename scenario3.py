@@ -87,11 +87,11 @@ if __name__ == '__main__':
         
         for word in selected_word_list: 
             
-            # agent.search(word)
+            agent.search(word)
             
             #autocomplete - find prefix
-            max_num = random.randint(1, 4) 
-            agent.autocomplete(word[0:max_num]) 
+            # max_num = random.randint(1, 4) 
+            # agent.autocomplete(word[0:max_num]) 
             
         end_timer = time.time_ns()
         

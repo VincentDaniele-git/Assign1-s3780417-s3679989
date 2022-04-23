@@ -33,10 +33,16 @@ class HashTableDictionary(BaseDictionary):
         # TO BE IMPLEMENTED
         # place holder for return
         
-        for dictWord in self.dict:
-            if dictWord == word:
-                return self.dict[dictWord]
-        return 0
+        #Able to access word in dictionary
+        if word in self.dict:
+            return self.dict[word]
+        else:
+            return 0
+        
+        # for dictWord in self.dict:
+        #     if dictWord == word:
+        #         return self.dict[dictWord]
+        # return 0
 
     def add_word_frequency(self, word_frequency: WordFrequency) -> bool:
         """
@@ -46,12 +52,21 @@ class HashTableDictionary(BaseDictionary):
         """
         # TO BE IMPLEMENTED
         # place holder for return
-        for dictWord in self.dict:
-            if dictWord == word_frequency.word:
-                return False
-            else:
-                self.dict[word_frequency.word] = word_frequency.frequency
-                return True
+        
+        #Able to access word in dictionary
+        if word_frequency.word in self.dict:
+            return False
+        else:
+            self.dict[word_frequency.word] = word_frequency.frequency
+            return True
+            
+        
+        # for dictWord in self.dict:
+        #     if dictWord == word_frequency.word:
+        #         return False
+        #     else:
+        #         self.dict[word_frequency.word] = word_frequency.frequency
+        #         return True
 
     def delete_word(self, word: str) -> bool:
         """
@@ -62,11 +77,18 @@ class HashTableDictionary(BaseDictionary):
         # TO BE IMPLEMENTED
         # place holder for return
         
-        for dictWord in self.dict:
-            if dictWord == word:
-                del self.dict[dictWord]
-                return True
-        return False
+        #Able to access word in dictionary
+        if word in self.dict:
+            del self.dict[word]
+            return True
+        else:
+            return False
+        
+        # for dictWord in self.dict:
+        #     if dictWord == word:
+        #         del self.dict[dictWord]
+        #         return True
+        # return False
 
     def autocomplete(self, prefix_word: str) -> List[WordFrequency]:
         """
